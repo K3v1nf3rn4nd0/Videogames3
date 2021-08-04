@@ -1,0 +1,15 @@
+CREATE TABLE category(
+    idCategory INT AUTO_INCREMENT,
+    nameCategory VARCHAR(120) NOT NULL,
+    STATUS TINYINT DEFAULT 1,
+    CONSTRAINT pk_category_IdCategory PRIMARY KEY(idCategory)
+);
+CREATE TABLE game(
+	idGame INT AUTO_INCREMENT,
+	nameGame VARCHAR(120) NOT NULL,
+    Category_idCategory INT NOT NULL,
+    date_premire DATE NOT NULL,
+    STATUS TINYINT NOT NULL,
+    CONSTRAINT pk_game_IdGame PRIMARY KEY(idGame),
+    CONSTRAINT fk_game_Category_IdCategory FOREIGN KEY(Category_idCategory) REFERENCES category(idCategory)
+);
